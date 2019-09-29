@@ -49,7 +49,7 @@ function getDeysFromMonth(nowMonth) {
 			daysInMonth = 30; // определим месяцы длительностью 30 дней
 			break;
 		default:
-			daysInMonth = 31; // остальные месяци длятся 31 день
+			daysInMonth = 31; // остальные месяцы длятся 31 день
 	}
 	return daysInMonth;
 }
