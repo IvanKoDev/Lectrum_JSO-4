@@ -9,19 +9,36 @@
  * - Свойство salary обязательно должно быть геттером.
  */
 
-const person = {};
-
 // Решение
+// =========================================================================================================================
+//не смог решить, создавать переменные в глобальной области или внутри ф-ций
 
-const now = new Date(); // текущая дата
-const nowMonth = now.getMonth() + 1; // текущий месяц (начиная с 1)
-const nowYear = now.getFullYear(); // текущий год
+// -------------------------------------------------------------------------------------------------------------------------
+// создаем в объекте person свойство-геттер salary
+const person = {
+	get salary() {
+		const now = new Date(); // текущая дата
+		const nowDate = now.getDate(); // текущий день месяца
+		const nowMonth = now.getMonth() + 1; // текущий месяц (начиная с 1)
+		
+		const salaryDay = getDeysFromMonth(nowMonth) - 21;	// определим дату зарплаты в текущем месяце
+															// (отнимаем 21, т.к. должно быть больше 20 дней до конца месяца)
+		if (nowDate <= salaryDay) {	// если текущая дата меньше или равна дню зарплаты, -> 'good salary'
+		return 'good salary';
+	}
+	return 'bad salary'; // иначе -> 'bad salary'
+}
+};
 
-function getDeysFromMonth(nowMonth) { // возвращает количество дней в текущем месяце
+// -------------------------------------------------------------------------------------------------------------------------
+// возвращает количество дней в текущем месяце
+function getDeysFromMonth(nowMonth) {
 	let daysInMonth; // сюда сохраним количество дней в текущем месяце
-	let isLeapYear = (nowYear % 4 == 0 && nowYear % 100 != 0) || nowYear % 400 == 0; // проверим не высокосный ли сейчас год
-    
-    switch (nowMonth) {
+	const now = new Date(); // текущая дата
+	const nowYear = now.getFullYear(); // текущий год
+	
+	const isLeapYear = (nowYear % 4 == 0 && nowYear % 100 != 0) || nowYear % 400 == 0; // проверим не высокосный ли сейчас год
+	switch (nowMonth) { // определим количество дней в месяцах
 		case 2:
 			daysInMonth = isLeapYear ? 29 : 28; // определим длительность февраля в зависимости от текущего года
 			break;
@@ -37,18 +54,7 @@ function getDeysFromMonth(nowMonth) { // возвращает количеств
 	return daysInMonth;
 }
 
-const nowDate = now.getDate(); // текущий день месяца
-
-function salary(nowDate) { // вычисляем, пропустили ли мы день зарплаты и возвращаем соответствующее сообщение
-    let salaryDay = getDeysFromMonth(nowMonth) - 20; // запишем дату зарплаты в текущем месяце
-
-    if (nowDate < salaryDay) {
-		return 'good salary';
-	}
-	return 'bad salary';
-}
-
-person.salary = salary(nowDate); // записываем свойство salary объекту person
+// =========================================================================================================================
 console.log(person.salary); // bad salary
 
 // exports.person = person;
