@@ -48,9 +48,6 @@ function salary(nowDate) { // вычисляем, пропустили ли мы
 	return 'bad salary';
 }
 
-// console.log(getDeysFromMonth(nowMonth)); // 30 - проверяем количество дней в текущем месяце 
-// console.log(salary(nowDate)); // 10 - вычисляем день зарплаты (30 - 20) и сообщение
-
 person.salary = salary(nowDate); // записываем свойство salary объекту person
 console.log(person.salary); // bad salary
 
