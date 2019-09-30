@@ -36,8 +36,8 @@ Object.defineProperties(person, {
             const date = now.getDate();
             const money = date * this.rate;
             
-            if (this.rate === undefined) { // проверка значения свойства rate
-                return 0;
+            if (this.rate === undefined) {  // проверка значения свойства rate
+                return 0;                   // если не задано, возвращаем 0
             }
             return money;
         },
@@ -46,6 +46,7 @@ Object.defineProperties(person, {
     }
 });
 
+//=====================================================================================
 person.rate = 30; // записываем в свойство rate значение
 // Предположим что сегодня 10 января, в этом случае это свойство возвращает число 300
 
