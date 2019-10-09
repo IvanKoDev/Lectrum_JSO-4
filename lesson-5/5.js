@@ -13,8 +13,8 @@
 // Решение
 
 const isPositive = function(num) {
-    
-    if (typeof num !== 'number') {
+	
+	if (typeof num !== 'number') {
 		throw new Error('argument is not a number type');
 	}
 	const result = num >= 0 ? true : false;
