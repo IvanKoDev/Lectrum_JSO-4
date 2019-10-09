@@ -11,7 +11,7 @@
 // Решение
 
 function f() {
-    let sum = 0;
+	let sum = 0;
     
 	for (item of arguments) {
 		if (typeof item !== 'number') {
@@ -19,7 +19,6 @@ function f() {
 		}
 		sum += item;
 	}
-
 	return `the sum of arguments equal ${sum}`;
 }
 
