@@ -30,7 +30,11 @@ function f(dayOfWeek) {
 		'Суббота'
 	];
 
-	if (typeof dayOfWeek !== 'number' || dayOfWeek < 0 || dayOfWeek > 7) {
+	if (typeof dayOfWeek !== 'number') {
+		throw new Error(`'${dayOfWeek}' - argument is not a number`);
+	}
+	
+	if (typeof dayOfWeek < 1 || dayOfWeek > 7) {
 		throw new Error(`'${dayOfWeek}' - enter the number from 1 to 7`);
 	}
 	const result = weekDays[dayOfWeek - 1];
@@ -41,7 +45,7 @@ function f(dayOfWeek) {
 console.log(f(1)); // Воскресенье
 console.log(f(4)); // Среда
 console.log(f(7)); // Суббота
-console.log(f(8)); // Error: '8' - enter the number from 1 to 7
-console.log(f('n')); // Error: 'n' - enter the number from 1 to 7
+// console.log(f(8)); // Error: '8' - enter the number from 1 to 7
+// console.log(f('n')); // Error: 'n' - enter the number from 1 to 7
 
 // exports.f = f;
