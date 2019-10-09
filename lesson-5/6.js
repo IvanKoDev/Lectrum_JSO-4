@@ -13,8 +13,8 @@
 // Решение
 
 const isEven = function(num) {
-    
-    if (typeof num !== 'number') {
+	
+	if (typeof num !== 'number') {
 		throw new Error('argument is not a number type');
 	}
 
