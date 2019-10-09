@@ -15,7 +15,7 @@ function f(a, b, c) {
 	for (item of arguments) {
 		if (typeof item !== 'number') {
 			throw new Error(`'${item}' - argument is not a number`);
-        }
+        	}
         
         result = (a - b) / c;
 	}
