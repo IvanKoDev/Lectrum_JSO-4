@@ -10,12 +10,11 @@
 // Решение
 
 function f(n) {
-    
-    if (typeof n !== 'number') {
+	
+	if (typeof n !== 'number') {
 		throw new Error('argument is not a number type');
 	}
-    const square = n * n * n;
-
+	const square = n * n * n;
 	return 'square of ' + n + ' is ' + square;
 }
 
