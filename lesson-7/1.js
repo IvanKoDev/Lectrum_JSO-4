@@ -38,6 +38,7 @@ const array3 = 'string';        // Error: argument is not an array
 //=======================================================================
 
 const inspect = function(array) {
+    
     if (!Array.isArray(arguments[0])) {
         throw new Error ('argument is not an array');
     }
