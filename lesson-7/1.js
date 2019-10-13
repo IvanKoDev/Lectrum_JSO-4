@@ -29,11 +29,6 @@ const array = [
     'Приветствую.',
 ];
 
-// Проверочные массивы
-const array1 = [];              // []
-const array2 = [1, 2, 3, 4];    // []
-const array3 = 'string';        // Error: argument is not an array
-
 // Решение
 //=======================================================================
 
@@ -53,9 +48,14 @@ const inspect = function(array) {
 const result = inspect(array);
 console.log(result);            // [ 7, 11, 7, 12 ] - получаем ожидаемый результат
 
-// проводим валидации на соответствие бизнес-условиям
+// проводим проверку на соответствие бизнес-условиям
+const array1 = [];
 console.log(inspect(array1));   // [] - done!
+
+const array2 = [1, 2, 3, 4];
 console.log(inspect(array2));   // [] - done!
+
+const array3 = 'string';
 console.log(inspect(array3));   // Error: argument is not an array - done!
 
 // exports.inspect = inspect;
