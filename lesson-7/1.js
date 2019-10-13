@@ -47,7 +47,7 @@ const inspect = function(array) {
     // - методом .filter() выделяем строки
     // - методом .map() возвращаем массив с их длинами 
     return array.filter(element => typeof element === 'string').map(element => element.length);
-}
+};
 
 //=======================================================================
 const result = inspect(array);
