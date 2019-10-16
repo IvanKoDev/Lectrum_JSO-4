@@ -16,7 +16,7 @@
  * - Второй аргумент встроенного метода filter (thisArg) имплементировать не нужно.
  */
 
-const array = [3, 'Доброе утро!', 'Добрый вечер!',	3,	512, '#', 'До свидания!'];
+const array = [3, 'Доброе утро!', 'Добрый вечер!', 3, 512, '#', 'До свидания!'];
 
 // Решение
 
@@ -43,10 +43,10 @@ const filter = function(arrayRef, callback) {
 
 	let result = []; // задаем массив-хранилище для записи искомого значения
 
-	for (let i = 0; i < arrayRef.length; i++) { 		// перебираем значения и передаем их в callback
-			if (callback(arrayRef[i], i, arrayRef)) { 	// если callback находит знечение, ->
-				result.push(arrayRef[i]);				// -> то записываем его в хранилище result
-			};
+	for (let i = 0; i < arrayRef.length; i++) {		// перебираем значения и передаем их в callback
+		if (callback(arrayRef[i], i, arrayRef)) { 	// если callback находит знечение, ->
+			result.push(arrayRef[i]);				// -> то записываем его в хранилище result
+		};
 	};
 	return result; 
 };
