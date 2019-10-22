@@ -15,22 +15,15 @@
  */
 
 // Решение
-
-const user = { firstName: 'Marcus', lastName: 'Kronenberg' };
-const userData = { job: 'developer', country: 'Germany', lastName: 'Schmidt' };
-
-Object.defineProperty(user, 'firstName', { writable: false });
-Object.defineProperty(userData, 'job', { configurable: false });
+//=============================================================================
 
 // проверяем аргументы на то, являются ли они объектами
 const validator = function(item) {
-	
 	// исключаем все (почти все :) ), что не есть объектами, а также массивы и null 
 	if (!(typeof item === "object" && !Array.isArray(item) && item !== null)) {
-
+		
 		throw new Error('Arguments are not objects!');
 	}
-	
 }
 
 const shallowMerge = function(obj1, obj2) {
@@ -41,19 +34,25 @@ const shallowMerge = function(obj1, obj2) {
 		validator(arg);
 	}
 	
-
 	// т.к. бизнес-условиями не оговорено сохранить входящие объекты от мутации, то задачу можно решить следующей строкой:
 	// const objResult = Object.defineProperties(obj1, Object.getOwnPropertyDescriptors(obj2));
 	
 	// но для сохранения хорошего тона можно ввести доп. переменные и оставить входящие объекты в исходном состоянии: 
-		// делаем копию первого объекта со значениями дескрипторов в пустой объект и сохраняем во временный объект
+	// делаем копию первого объекта со значениями дескрипторов в пустой объект и сохраняем во временный объект
 	const objTemp = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj1));
-
-		// добавляем второй объект со значениями дескрипторов во временный объект и сохраняем результат 
+	
+	// добавляем второй объект со значениями дескрипторов во временный объект и сохраняем результат 
 	const objResult = Object.defineProperties(objTemp, Object.getOwnPropertyDescriptors(obj2));
-
+	
 	return objResult;
 }
+//=============================================================================
+
+const user = { firstName: 'Marcus', lastName: 'Kronenberg' };
+const userData = { job: 'developer', country: 'Germany', lastName: 'Schmidt' };
+
+Object.defineProperty(user, 'firstName', { writable: false });
+Object.defineProperty(userData, 'job', { configurable: false });
 
 const result = shallowMerge(user, userData);
 
