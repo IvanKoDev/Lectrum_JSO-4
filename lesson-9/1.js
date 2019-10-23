@@ -19,7 +19,7 @@
 
 // проверяем аргументы на то, являются ли они объектами
 const validator = function(item) {
-	// исключаем все (почти все :) ), что не есть объектами, а также массивы и null 
+// исключаем все (почти все :) ), что не есть объектами, а также массивы и null 
 	if (!(typeof item === "object" && !Array.isArray(item) && item !== null)) {
 		
 		throw new Error('Arguments are not objects!');
